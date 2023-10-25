@@ -30,43 +30,56 @@ Dự án này sử dụng các thư viện và thuật toán sau:
 
 1. Clone dự án từ GitHub:
 
-```bash
-git clone https://github.com/Zavield-TheChosen1/Classify-images-of-Large-Cats-using-SVM-and-ID3-algorithms.git
-cd Classify-images-of-Large-Cats-using-SVM-and-ID3-algorithms
-Cài đặt các thư viện cần thiết:
-bash
-Copy code
-pip install -r requirements.txt
-Tài Liệu Tham Khảo
+    ```bash
+    git clone https://github.com/Zavield-TheChosen1/Classify-images-of-Large-Cats-using-SVM-and-ID3-algorithms.git
+    cd Classify-images-of-Large-Cats-using-SVM-and-ID3-algorithms
+    ```
+
+2. Cài đặt các thư viện cần thiết (cần cài đặt tất cả các thư viện sau):
+
+    ```bash
+    pip install json pandas scikit-learn joblib matplotlib tabulate
+    ```
+
+
+## Tài Liệu Tham Khảo
+
 Dưới đây là một số tài liệu tham khảo về thuật toán và thư viện được sử dụng trong dự án:
 
-Thuật Toán
-Support Vector Machine (SVM):
+### Thuật Toán
 
-Hướng dẫn scikit-learn về SVM
-Decision Tree:
+1. **Support Vector Machine (SVM)**:
+    - [Hướng dẫn scikit-learn về SVM](https://scikit-learn.org/stable/modules/svm.html)
 
-Hướng dẫn scikit-learn về Decision Trees
-Thư Viện
-scikit-learn:
+2. **Decision Tree**:
+    - [Hướng dẫn scikit-learn về Decision Trees](https://scikit-learn.org/stable/modules/tree.html)
 
-Tài liệu chính thức của scikit-learn
-Pandas:
+### Thư Viện
 
-Tài liệu chính thức của pandas
-Thông Tin Liên Hệ
-Email: haanhty2711@gmail.com
-Thành Viên Phát Triển
-Hà Anh Tú
-Nguyễn Thị Thanh Thảo
-Nguyễn Tiến Dũng
-Vũ Văn Hoàng
-Hướng Phát Triển Sắp Tới
+1. **scikit-learn**: 
+    - [Tài liệu chính thức của scikit-learn](https://scikit-learn.org/stable/documentation.html)
+
+2. **Pandas**:
+    - [Tài liệu chính thức của pandas](https://pandas.pydata.org/docs/)
+
+## Thông Tin Liên Hệ
+
+- Email: haanhty2711@gmail.com
+
+## Thành Viên Phát Triển
+
+- Hà Anh Tú
+- Nguyễn Thị Thanh Thảo
+- Nguyễn Tiến Dũng
+- Vũ Văn Hoàng
+
+## Hướng Phát Triển Sắp Tới
+
 Các hướng phát triển sắp tới bao gồm:
 
-Tối ưu hóa hiệu suất mô hình và tăng độ chính xác.
+1. Tối ưu hóa hiệu suất mô hình và tăng độ chính xác.
 
-Mở rộng dự án để phân loại nhiều loài mèo khác nhau.
+2. Mở rộng dự án để phân loại nhiều loài mèo khác nhau.
 
-Phát triển giao diện người dùng (UI) để tạo trải nghiệm sử dụng dễ dàng hơn.
+3. Phát triển giao diện người dùng (UI) để tạo trải nghiệm sử dụng dễ dàng hơn.
 
