@@ -1,4 +1,5 @@
-﻿import json
+﻿#Import các thư viện cần thiết
+import json
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
@@ -10,17 +11,18 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, confu
 import os
 import matplotlib.pyplot as plt
 from tabulate import tabulate
+import numpy as np
 
 # Thời điểm bắt đầu huấn luyện
 thời_điểm_bắt_đầu = time.time()
 
 # Địa chỉ lưu trữ các file JSON
 json_files = [
-    "E:/Code/ML3/anh_nhan_dan_1.json",
-    "E:/Code/ML3/anh_dan_nhan_2.json",
-    "E:/Code/ML3/anh_dan_nhan_3.json",
-    "E:/Code/ML3/anh_dan_nhan_6.json",
-    "E:/Code/ML3/anh_dan_nhan_4.json"
+    "E:/Code/ML4_SVMvsID3/anh_nhan_dan_1.json",
+    "E:/Code/ML4_SVMvsID3/anh_dan_nhan_2.json",
+    "E:/Code/ML4_SVMvsID3/anh_dan_nhan_3.json",
+    "E:/Code/ML4_SVMvsID3/anh_dan_nhan_6.json",
+    "E:/Code/ML4_SVMvsID3/anh_dan_nhan_4.json"
 ]
 
 # Khởi tạo danh sách để lưu trữ giá trị hàm mất mát qua các lượt huấn luyện
@@ -211,6 +213,51 @@ thời_gian_huấn_luyện_svm = thời_điểm_kết_thúc - thời_điểm_b�
 
 # Thời gian huấn luyện cho Decision Tree (tính bằng giây)
 thời_gian_huấn_luyện_decision_tree = thời_điểm_kết_thúc - thời_điểm_bắt_đầu
+
+# Đánh giá mô hình SVM (tạo bảng)
+svm_accuracy = accuracy_score(y_test, y_pred_svm)
+svm_precision = precision_score(y_test, y_pred_svm, average='macro')
+svm_recall = recall_score(y_test, y_pred_svm, average='macro')
+svm_confusion = confusion_matrix(y_test, y_pred_svm)
+
+# Đánh giá mô hình Decision Tree (tạo bảng)
+decision_tree_accuracy = accuracy_score(y_test, y_pred_decision_tree)
+decision_tree_precision = precision_score(y_test, y_pred_decision_tree, average='macro')
+decision_tree_recall = recall_score(y_test, y_pred_decision_tree, average='macro')
+decision_tree_confusion = confusion_matrix(y_test, y_pred_decision_tree)
+
+# Tạo biểu đồ đánh giá mô hình SVM và ID3
+def plot_evaluation(title, accuracy, precision, recall, confusion):
+    plt.figure(figsize=(12, 4))
+    
+    # Đánh giá độ chính xác, độ nhạy, độ cụ thể
+    plt.subplot(131)
+    plt.bar(['Accuracy', 'Precision', 'Recall'], [accuracy, precision, recall])
+    plt.title(f'{title} Evaluation Metrics')
+    plt.ylim([0, 1])
+    
+    # Hiển thị ma trận nhầm lẫn
+    plt.subplot(132)
+    plt.imshow(confusion, interpolation='nearest', cmap=plt.get_cmap('Blues'))
+    plt.title(f'{title} Confusion Matrix')
+    plt.colorbar()
+    
+    # Hiển thị các nhãn trên ma trận nhầm lẫn
+    num_classes = len(confusion)
+    plt.xticks(np.arange(num_classes), np.arange(1, num_classes + 1), rotation=45)
+    plt.yticks(np.arange(num_classes), np.arange(1, num_classes + 1))
+    plt.xlabel('Predicted')
+    plt.ylabel('Actual')
+    
+    plt.tight_layout()
+    plt.show()
+
+# Vẽ biểu đồ đánh giá mô hình SVM
+plot_evaluation('SVM', svm_accuracy, svm_precision, svm_recall, svm_confusion)
+
+# Vẽ biểu đồ đánh giá mô hình Decision Tree
+plot_evaluation('Decision Tree', decision_tree_accuracy, decision_tree_precision, decision_tree_recall, decision_tree_confusion)
+
 
 # Đánh giá mô hình SVM
 điểm_svm = svm_model.score(x_test, y_test)

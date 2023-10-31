@@ -4,7 +4,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>d20b800b-1882-43c3-986d-2507ac23880e</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>ML4_SVMvsID3.py</StartupFile>
+    <StartupFile>
+    </StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -24,6 +25,7 @@
     <Compile Include="..\ML4_SVMvsID3.py">
       <Link>ML4_SVMvsID3.py</Link>
     </Compile>
+    <Compile Include="module1.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="anh_dan_nhan_2.json" />
